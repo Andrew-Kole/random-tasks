@@ -4,7 +4,7 @@ todos = []
 
 while True:
     todo = input(user_promt)
-    todos.append(todo)
+    todos.append(todo.capitalize())
     print(todos)
 
 
