@@ -5,7 +5,7 @@ In other words, the program should behave as in the screenshot below:
 
 (in folder with same name)
 """
-name = ""
+#name = ""  no reason to declare it
 
 while True:
     name = input("What is your name?")
