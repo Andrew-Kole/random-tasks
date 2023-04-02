@@ -10,5 +10,5 @@ Copy-paste the above list in a .py file and extend the code, so it prints out th
 
 filenames = ['document', 'report', 'presentation']
 for i, j in enumerate(filenames):
-    row = f"{i}-{j}.txt"
+    row = f"{i}-{j.capitalize()}.txt"
     print(row)
