@@ -10,13 +10,16 @@ while True:
             todos.append(todo)
         case 'show' | 'display':
             for index, item in enumerate(todos):
-                row = f"{index}-{item}"
+                row = f"{index + 1}-{item}"
                 print(row)
         case 'edit':
             number = int(input("The number of todo to edit: "))
             number = number - 1
             new_item = input("Enter new todo")
             todos[number] = new_item
+        case 'complete':
+            number = int(input("Which item number do you wish to complete"))
+            todos.pop(number - 1)
         case 'exit' :
             break
         case _:
