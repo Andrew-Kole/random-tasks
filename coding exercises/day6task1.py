@@ -4,3 +4,4 @@ Please download the essay.txt file from the resources of this article. Then, cre
 
 file = open("../files/essay.txt", "r")
 print(file.readline().title())
+file.close()
