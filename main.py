@@ -8,11 +8,13 @@ while True:
 
             file = open("todos.txt", "r")
             todos = file.readlines()
+            file.close()
 
             todos.append(todo)
 
             file = open('todos.txt', 'w')
             file.writelines(todos)
+            file.close()
         case 'show' | 'display':
             for index, item in enumerate(todos):
                 row = f"{index + 1}-{item}"
