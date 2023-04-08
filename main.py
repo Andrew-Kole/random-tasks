@@ -3,7 +3,7 @@ while True:
     user_action = input("Type add, show, edit or exit: ")
     user_action = user_action.strip()
 
-    if 'add' in user_action:
+    if 'add' in user_action or "new" in user_action:
         todo = user_action[4:] + "\n"
 
         with open("files/todos.txt", "r") as file:
@@ -14,7 +14,7 @@ while True:
         with open('files/todos.txt', 'w') as file:
             file.writelines(todos)
 
-    elif 'show' in user_action:
+    elif 'show' in user_action or "display" in user_action:
 
         with open("files/todos.txt", "r") as file:
             todos = file.readlines()
