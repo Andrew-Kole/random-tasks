@@ -3,7 +3,7 @@ while True:
     user_action = input("Type add, show, edit or exit: ")
     user_action = user_action.strip()
 
-    if 'add' in user_action or "new" in user_action:
+    if user_action.startswith("add") or user_action.startswith("new"):
         todo = user_action[4:] + "\n"
 
         with open("files/todos.txt", "r") as file:
@@ -14,7 +14,7 @@ while True:
         with open('files/todos.txt', 'w') as file:
             file.writelines(todos)
 
-    elif 'show' in user_action or "display" in user_action:
+    elif user_action.startswith("show") or user_action.startswith("display"):
 
         with open("files/todos.txt", "r") as file:
             todos = file.readlines()
@@ -25,7 +25,7 @@ while True:
             item = item.strip("\n")
             row = f"{index + 1}-{item}"
             print(row)
-    elif'edit' in user_action:
+    elif user_action.startswith("edit"):
         number = int(user_action[5:])
         print(number)
         number = number - 1
@@ -39,7 +39,7 @@ while True:
         with open("files/todos.txt", "w") as file:
             file.writelines(todos)
 
-    elif 'complete' in user_action:
+    elif user_action.startswith("complete"):
         number = int(user_action[9:])
 
         with open("files/todos.txt", "r") as file:
@@ -49,7 +49,7 @@ while True:
 
         with open("files/todos.txt", "w") as file:
             todos = file.writelines(todos)
-    elif 'exit' in user_action:
+    elif user_action.startswith("exit"):
         break
     else:
         print("Unknown command")
