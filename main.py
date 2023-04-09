@@ -26,29 +26,45 @@ while True:
             row = f"{index + 1}-{item}"
             print(row)
     elif user_action.startswith("edit"):
-        number = int(user_action[5:])
-        print(number)
-        number = number - 1
+        try:
+            number = int(user_action[5:])
+            number = number - 1
 
-        with open("files/todos.txt", "r") as file:
-            todos = file.readlines()
+            with open("files/todos.txt", "r") as file:
+                todos = file.readlines()
 
-        new_item = input("Enter new todo: ")
-        todos[number] = new_item + "\n"
+            if number < len(todos):
 
-        with open("files/todos.txt", "w") as file:
-            file.writelines(todos)
+                new_item = input("Enter new todo: ")
+                todos[number] = new_item + "\n"
+
+                with open("files/todos.txt", "w") as file:
+                    file.writelines(todos)
+            else:
+                print("There is no item with that number")
+                continue
+        except ValueError:
+            print("Your command is not valid.")
+            continue
 
     elif user_action.startswith("complete"):
-        number = int(user_action[9:])
+        try:
+            number = int(user_action[9:])
 
-        with open("files/todos.txt", "r") as file:
-            todos = file.readlines()
+            with open("files/todos.txt", "r") as file:
+                todos = file.readlines()
 
-        todos.pop(number - 1)
+            todos.pop(number - 1)
 
-        with open("files/todos.txt", "w") as file:
-            todos = file.writelines(todos)
+            with open("files/todos.txt", "w") as file:
+                todos = file.writelines(todos)
+        except IndexError:
+            print("There is no item with that number")
+            continue
+        except ValueError:
+            print("Your command is not valid.")
+            continue
+
     elif user_action.startswith("exit"):
         break
     else:
