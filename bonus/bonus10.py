@@ -1,0 +1,9 @@
+try:
+    width = float(input("Enter a rectangle width: "))
+    length = float(input("Enter a rectangle length: "))
+    if width == length:
+        exit("It looks like a square.")
+    area = width * length
+    print(area)
+except ValueError:
+    print("Please, enter a number!")
