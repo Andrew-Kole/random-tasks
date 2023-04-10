@@ -1,3 +1,9 @@
+def get_todos():
+    with open("files/todos.txt", "r") as file_local:
+        todos_local = file_local.readlines()
+    return todos_local
+
+
 while True:
     # Get user input and strip space chars from it
     user_action = input("Type add, show, edit or exit: ")
@@ -6,8 +12,7 @@ while True:
     if user_action.startswith("add") or user_action.startswith("new"):
         todo = user_action[4:] + "\n"
 
-        with open("files/todos.txt", "r") as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         todos.append(todo + "\n")
 
@@ -16,8 +21,7 @@ while True:
 
     elif user_action.startswith("show") or user_action.startswith("display"):
 
-        with open("files/todos.txt", "r") as file:
-            todos = file.readlines()
+        todos = get_todos()
 
         # new_todos = [item.strip(("\n") for item in todos]
 
@@ -30,19 +34,15 @@ while True:
             number = int(user_action[5:])
             number = number - 1
 
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
-            if number < len(todos):
 
-                new_item = input("Enter new todo: ")
-                todos[number] = new_item + "\n"
+            new_item = input("Enter new todo: ")
+            todos[number] = new_item + "\n"
 
-                with open("files/todos.txt", "w") as file:
-                    file.writelines(todos)
-            else:
-                print("There is no item with that number")
-                continue
+            with open("files/todos.txt", "w") as file:
+                file.writelines(todos)
+
         except ValueError:
             print("Your command is not valid.")
             continue
@@ -51,8 +51,7 @@ while True:
         try:
             number = int(user_action[9:])
 
-            with open("files/todos.txt", "r") as file:
-                todos = file.readlines()
+            todos = get_todos()
 
             todos.pop(number - 1)
 
@@ -60,9 +59,6 @@ while True:
                 todos = file.writelines(todos)
         except IndexError:
             print("There is no item with that number")
-            continue
-        except ValueError:
-            print("Your command is not valid.")
             continue
 
     elif user_action.startswith("exit"):
