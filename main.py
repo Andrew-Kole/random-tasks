@@ -1,7 +1,12 @@
-def get_todos():
-    with open("files/todos.txt", "r") as file_local:
+def get_todos(filepath):
+    with open(filepath, "r") as file_local:
         todos_local = file_local.readlines()
     return todos_local
+
+
+def write_todos(filepath, todos_arg):
+    with open(filepath, 'w') as file:
+        file.writelines(todos_arg)
 
 
 while True:
@@ -12,16 +17,15 @@ while True:
     if user_action.startswith("add") or user_action.startswith("new"):
         todo = user_action[4:] + "\n"
 
-        todos = get_todos()
+        todos = get_todos("files/todos.txt")
 
         todos.append(todo + "\n")
 
-        with open('files/todos.txt', 'w') as file:
-            file.writelines(todos)
+        write_todos('files/todos.txt', todos)
 
     elif user_action.startswith("show") or user_action.startswith("display"):
 
-        todos = get_todos()
+        todos = get_todos("files/todos.txt")
 
         # new_todos = [item.strip(("\n") for item in todos]
 
@@ -34,14 +38,13 @@ while True:
             number = int(user_action[5:])
             number = number - 1
 
-            todos = get_todos()
+            todos = get_todos("files/todos.txt")
 
 
             new_item = input("Enter new todo: ")
             todos[number] = new_item + "\n"
 
-            with open("files/todos.txt", "w") as file:
-                file.writelines(todos)
+            write_todos('files/todos.txt', todos)
 
         except ValueError:
             print("Your command is not valid.")
@@ -51,12 +54,11 @@ while True:
         try:
             number = int(user_action[9:])
 
-            todos = get_todos()
+            todos = get_todos("files/todos.txt")
 
             todos.pop(number - 1)
 
-            with open("files/todos.txt", "w") as file:
-                todos = file.writelines(todos)
+            write_todos('files/todos.txt', todos)
         except IndexError:
             print("There is no item with that number")
             continue
