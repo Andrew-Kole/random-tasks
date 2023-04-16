@@ -1,6 +1,5 @@
 #from functions import get_todos, write_todos
-import functions
-
+from modules import functions
 
 while True:
     # Get user input and strip space chars from it
