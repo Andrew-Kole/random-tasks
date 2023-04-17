@@ -1,7 +1,7 @@
 """
 There is another error in the same program. Please fix the error.
 
-main.py:
+cli.py:
 
 from functions import count
 

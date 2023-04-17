@@ -1,7 +1,7 @@
 """
 The same program as in exercise 1 now is throwing yet another error. Hunt the error down and fix it.
 
-main.py:
+cli.py:
 
 import functions.py
 

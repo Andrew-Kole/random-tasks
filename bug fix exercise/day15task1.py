@@ -18,7 +18,7 @@ def parse(user_input):
     return {"lower_bound": lower_bound, "upper_bound": upper_bound}
 
 
-main.py
+cli.py
 
 from parsers import parse 
 import random
@@ -33,7 +33,7 @@ parsed = parse(user_input)
 rand = random.randint(parsed['lower_bound'], parsed['upper_bound'])
  
 print(rand)
-When the user executes main.py file, an error is produced. Place the two files in your IDE and try to debug the program.
+When the user executes cli.py file, an error is produced. Place the two files in your IDE and try to debug the program.
 """
 
 from modules.bf_day15task1 import parse
