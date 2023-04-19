@@ -3,5 +3,4 @@ read
 watch
 drink
 work
-almost done
 working button
