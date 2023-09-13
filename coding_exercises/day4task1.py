@@ -10,3 +10,4 @@ Create a program that:
 
 user_prompt = float(input("How many dollars have you got?"))
 print("The amount of euros is: \n" , user_prompt * 0.95)
+

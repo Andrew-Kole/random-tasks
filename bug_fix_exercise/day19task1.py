@@ -45,7 +45,7 @@ However, there is one error in one of the above scripts. Hunt it down and fix it
 # Note: This script runs only on a local IDE with "streamlit run main.py"
 import streamlit as st
 import sys
-sys.path.insert(1, "C://Users/Acer/PycharmProjects/pythonProject")
+sys.path.insert(0, "C://Users/Acer/PycharmProjects/pythonProject")
 import modules.bf_day19task1_func as mbf
 
 st.subheader("Color to Grayscale Converter")
